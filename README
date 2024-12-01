@@ -1,0 +1,12 @@
+Objetivos: criar um site que gera senhas aleatórias e não usadas por ninguém.
+
+Funcionalidades: criar variação de senhas (letras maiúsculas, números, sinais, etc), criar níveis de senha (forte, média ou fraca) dependendo da quantidade de letras.
+
+Estética: criar uma barra para sinalizar os níveis, cada cor representando um diferente.
+
+Cronograma:
+28/11: começar o index (feito)
+29/11: terminar o index e começar o style (feito)
+30/11: terminar o style e começar o arquivo .js (feito)
+31/11: termianr o arquivo .js e começar a documentação (feito)
+1/12: terminar a documentação e fazer os slides (feito)
