@@ -4,6 +4,7 @@ Esse código foi criado com o objetivo de criar senhas mais seguras para as pess
 
 Essas novas senhas usam uma combinação de letras maiúsculas, minúsculas, números e sinais (@,#,&,*...) para tornar o padrão mais imprevisível, dificultando a invasão de hackers. 
 
+
 Inicialização e Configuração: O código define várias constantes contendo caracteres possíveis para a senha: Letras maiúsculas (letrasMaiusculas), minúsculas (letrasMinusculas), números (numeros), e símbolos (simbolos). O tamanho inicial da senha é definido como 12 e pode variar entre 1 e 20. Elementos da interface (botões, caixas de seleção, campo de senha, etc.) são referenciados para interação no DOM.  
 
 Ajuste do Tamanho da Senha: Botões permitem aumentar ou diminuir o tamanho da senha: diminuiTamanho: Reduz o tamanho da senha se for maior que 1. aumentaTamanho: Aumenta o tamanho da senha até o limite de 20. Após cada ajuste, a função geraSenha é chamada para criar uma nova senha.  
