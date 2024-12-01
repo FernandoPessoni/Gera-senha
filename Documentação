@@ -1,0 +1,39 @@
+Processo de Criação do Código: 
+
+Esse código foi criado com o objetivo de criar senhas mais seguras para as pessoas, substituindo as mais genéricas que podem ser invadidas com muito mais facilidade como senhas que usam: datas de aniversário, nomes de familiares ou padrões sequenciais (123456 por exemplo). 
+
+Essas novas senhas usam uma combinação de letras maiúsculas, minúsculas, números e sinais (@,#,&,*...) para tornar o padrão mais imprevisível, dificultando a invasão de hackers. 
+
+Inicialização e Configuração: O código define várias constantes contendo caracteres possíveis para a senha: Letras maiúsculas (letrasMaiusculas), minúsculas (letrasMinusculas), números (numeros), e símbolos (simbolos). O tamanho inicial da senha é definido como 12 e pode variar entre 1 e 20. Elementos da interface (botões, caixas de seleção, campo de senha, etc.) são referenciados para interação no DOM.  
+
+Ajuste do Tamanho da Senha: Botões permitem aumentar ou diminuir o tamanho da senha: diminuiTamanho: Reduz o tamanho da senha se for maior que 1. aumentaTamanho: Aumenta o tamanho da senha até o limite de 20. Após cada ajuste, a função geraSenha é chamada para criar uma nova senha.  
+
+Geração da Senha: A função geraSenha é responsável por construir a senha: Baseia-se nos caracteres habilitados pelos checkboxes (letras maiúsculas, minúsculas, números e/ou símbolos). A senha é gerada iterativamente escolhendo caracteres aleatórios do alfabeto permitido até atingir o tamanho definido. A senha gerada é exibida no campo de entrada (campoSenha).  
+
+Classificação da Força da Senha: A função classificaSenha avalia a entropia da senha com base no tamanho do alfabeto e no comprimento da senha: Calcula a entropia usando a fórmula E=tamanhoSenha×log⁡2(tamanho do alfabeto)E=tamanhoSenha×log2 (tamanho do alfabeto). Define a força da senha em três categorias: Fraca: Entropia ≤ 35. Média: Entropia entre 35 e 57. Forte: Entropia > 57. Exibe uma estimativa do tempo necessário para quebrar a senha com um ataque de força bruta, assumindo uma taxa de 100 milhões de tentativas por segundo.  
+
+Interatividade: A senha é regenerada automaticamente sempre que o usuário: Altera o tamanho da senha. Marca ou desmarca checkboxes para incluir/excluir tipos de caracteres. 
+ 
+
+O que achei do GIT: 
+
+O Git me ajudou bastante no desenvolvimento do meu código gerador de senhas, mesmo trabalhando sozinho. Aqui estão as principais formas como ele foi útil:  
+
+Controle de versões: Com o Git, eu posso salvar diferentes estágios do meu código ao longo do tempo e a cada vez que faço uma mudança significativa, usando um “commit”. 
+
+Experimentação sem medo: Posso criar ramificações (branches) para testar novas funcionalidades ou implementar ideias diferentes, sem afetar o código principal. Por exemplo, se eu quiser testar um algoritmo diferente para calcular a força da senha, posso fazer isso em uma branch separada. Se a ideia funcionar, é só unir essa branch ao código principal; se não funcionar, basta descartá-la sem comprometer o resto. 
+
+Backup do projeto: Se eu usar um repositório remoto como o GitHub ou GitLab, meu código fica salvo na nuvem. Isso significa que, mesmo que algo aconteça com meu computador, eu não perco o trabalho. Além disso, posso acessar o projeto de qualquer lugar.  
+
+Identificação de bugs: Caso eu encontre um problema no código, posso usar o histórico de commits para identificar quando e onde o bug foi introduzido. Isso facilita muito a correção de erros. 
+
+
+Dificuldades: 
+
+Garantir a aleatoriedade verdadeira: A geração de caracteres aleatórios no meu código depende de Math.random(), mas sei que ele não é considerado totalmente aleatório, apenas pseudoaleatório. Se eu precisar de um nível mais alto de segurança, talvez tenha que usar bibliotecas específicas para gerar números aleatórios mais seguros, como o crypto em JavaScript.  
+
+Evitar categorias vazias de caracteres: Se nenhum checkbox estiver selecionado, o alfabeto gerador da senha ficará vazio. Nesse caso, o código pode gerar erros ou uma senha inválida. Preciso implementar uma verificação para garantir que pelo menos uma categoria de caracteres esteja ativada.  
+
+Cálculo correto da entropia: O cálculo da entropia que implementei pode estar incorreto ou não refletir a realidade, já que multiplico o tamanho da senha pela entropia de caracteres, mas não incluo todas as variáveis de segurança real (como padrões previsíveis em senhas). Eu precisaria estudar mais sobre criptografia e segurança para garantir que esse cálculo seja preciso.  
+
+Validação do tamanho da senha: Apesar de limitar o tamanho da senha entre 1 e 20 caracteres, ainda é possível o usuário tentar manipular o DOM (via ferramentas do navegador) e quebrar essa regra. Preciso adicionar validações no código para lidar com isso. 
